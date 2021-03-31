@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 export default class App extends Component {
@@ -19,6 +19,9 @@ export default class App extends Component {
     return (
       <View>
         <Text>Apaps</Text>
+        <TouchableOpacity onPress={this.onAuthStateChange}>
+          <Text>Click to get SignIn</Text>
+        </TouchableOpacity>
       </View>
     );
   }
