@@ -12,7 +12,7 @@ export default class App extends Component {
   async componentDidMount() {
     GoogleSignin.configure({
       webClientId:
-        '173815811052-t1iecir98nsn9sh8js347q6vf85arcgq.apps.googleusercontent.com',
+        '173815811052-h1i21ekia21iq3n09ek1sndcetbm1694.apps.googleusercontent.com',
       forceCodeForRefreshToken: true,
       scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     });
