@@ -13,26 +13,18 @@ export default class App extends Component {
     GoogleSignin.configure({
       webClientId:
         '173815811052-t1iecir98nsn9sh8js347q6vf85arcgq.apps.googleusercontent.com',
-      forceCodeForRefreshToken: true,
-      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     });
   }
-
   async onGoogleButtonPress() {
     // Get the users ID token
-    try {
-      await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      console.log('idToken', userInfo);
-      // Create a Google credential with the token
-      // const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-      // console.log('googleCredential', googleCredential);
-      //
-      // // Sign-in the user with the credential
-      // return auth().signInWithCredential(googleCredential);
-    } catch (e) {
-      console.log('token error', e);
-    }
+    const {idToken} = await GoogleSignin.signIn();
+    console.log('token', idToken);
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    console.log('token', googleCredential);
+
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(googleCredential);
   }
 
   render() {
